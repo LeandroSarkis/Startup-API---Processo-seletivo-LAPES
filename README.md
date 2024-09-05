@@ -1,85 +1,116 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Startup API - Processo Seletivo LAPES
+##### Este projeto foi feito para o processo seletivo do grupo LAPES - Laboratório de Pesquisa de Engenharia de Software do CESUPA. O projeto integrar typescript com o banco de dados com a utilização do framework "nest.js" e a biblioteca de nodes, "node-postgres",  para criar uma API de startups 
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# FEATURES 
+##### ROOT: 
+- ###### ROTA: ./
+- ###### Descrição: Mostra todas as startups presentes no banco de dados.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+##### searchByCodigo:
+- ###### Rota: ./:codigo
+- ###### Descrição: Mostra a startup que possui o código em específico.
 
-## Description
+##### updateNameByCodigo:
+- ###### Utilizando do método put de algum software de API Ex: POSTMAN
+```sh
+{
+    "name": "novo_nome_startup"// novo nome da startup
+    "codigo": codigo_startup// codigo da startup 
+}
+```
+- ###### Descrição: Troca o nome antigo da startup a parti do código dela.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+#####   deleteByCodigo:
+- ###### Utilizando do método delete de algum software de API Ex: POSTMAN
+```sh
+{
+    "codigo": codigo_startup// codigo da startup que será deletada
+}
+```
+- ###### Descrição: Deleta uma row inteira do banco de dados a partir do código da startup.
 
-## Project setup
+##### createRow:
+- ###### Utilizando do método post de algum software de API Ex: POSTMAN
+```sh
+    {
+        "state_code": "CA",
+        "latitude": "37.238916",
+        "longitude": "-121.973718",
+        "zip_code": "95032",
+        "id": "c:16283",
+        "city": "Los Gatos",
+        "Unnamed 6": null,
+        "name": "TriCipher",
+        "labels": "1",
+        "founded_at": "1/1/2000",
+        "closed_at": null,
+        "first_funding_at": "2/14/2005",
+        "last_funding_at": "12/28/2009",
+        "age_first_funding_year": "5.126",
+        "age_last_funding_year": "9.9973",
+        "age_first_milestone_year": "7.0055",
+        "age_last_milestone_year": "7.0055",
+        "relationships": "9",
+        "funding_rounds": "4",
+        "funding_total_usd": "40100000",
+        "milestones": "1",
+        "state_code1": "CA",
+        "is_ca": "1",
+        "is_ny": "0",
+        "is_ma": "0",
+        "is_tx": "0",
+        "is_otherstate": "0",
+        "category_code": "enterprise",
+        "is_software": "0",
+        "is_web": "0",
+        "is_mobile": "0",
+        "is_enterprise": "1",
+        "is_advertising": "0",
+        "is_gamesvideo": "0",
+        "is_ecommerce": "0",
+        "is_biotech": "0",
+        "is_consulting": "0",
+        "is_othercategory": "0",
+        "object_id": "c:16283",
+        "has_vc": "1",
+        "has_angel": "0",
+        "has_rounda": "0",
+        "has_roundb": "1",
+        "has_roundc": "1",
+        "has_roundd": "1",
+        "avg_participants": "4.75",
+        "is_top500": "1",
+        "status": "acquired"
+    }
+```
+- ###### Descrição: Ele irá criar uma nova row no banco de dados a partir das informações conhecidas.
 
-```bash
-$ npm install
+# PRÉ-REQUISITOS
+- ##### Typescript
+- ##### Framework nest.JS
+- ##### Biblioteca node-postegres
+- ##### PostgresSQL
+
+# COMO EXECUTAR
+- ##### Use o git clone para pegar o código do programa
+```s
+    git clone https://github.com/LeandroSarkis/Startup-API---Processo-seletivo-LAPES
 ```
 
-## Compile and run the project
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+- ##### Coloque o script do banco de dados no postgres
+>
+- ##### Certifique-se que o const enviroment está de acordo com a sua database do postgres
+```s
+    export const enviroment = {
+    user: 'postgres',// usúario da database
+    password: '1234', // senha da database
+    host: 'localhost', // local onde vai ser hosteada a database
+    port: 5432, // port do postgres
+    database: 'postgres', // nome da database
+    }
+```
+- ##### Começe a api pelo console do visual studio code
+ ```s
+    npm run start
 ```
 
-## Run tests
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
